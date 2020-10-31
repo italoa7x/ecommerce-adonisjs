@@ -20,4 +20,8 @@ Route.get("/", () => {
   return { greeting: "Hello world in JSON" }
 })
 
+//autenticacao
 require("./auth")
+
+//admin
+require("./admin")
