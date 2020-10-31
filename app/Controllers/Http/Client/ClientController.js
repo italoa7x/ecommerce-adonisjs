@@ -5,12 +5,12 @@
 /** @typedef {import('@adonisjs/framework/src/View')} View */
 
 /**
- * Resourceful controller for interacting with coupons
+ * Resourceful controller for interacting with clients
  */
-class CouponController {
+class ClientController {
   /**
-   * Show a list of all coupons.
-   * GET coupons
+   * Show a list of all clients.
+   * GET clients
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -21,8 +21,8 @@ class CouponController {
   }
 
   /**
-   * Render a form to be used for creating a new coupon.
-   * GET coupons/create
+   * Render a form to be used for creating a new client.
+   * GET clients/create
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -33,8 +33,8 @@ class CouponController {
   }
 
   /**
-   * Create/save a new coupon.
-   * POST coupons
+   * Create/save a new client.
+   * POST clients
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -44,8 +44,8 @@ class CouponController {
   }
 
   /**
-   * Display a single coupon.
-   * GET coupons/:id
+   * Display a single client.
+   * GET clients/:id
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -56,8 +56,8 @@ class CouponController {
   }
 
   /**
-   * Render a form to update an existing coupon.
-   * GET coupons/:id/edit
+   * Render a form to update an existing client.
+   * GET clients/:id/edit
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -68,8 +68,8 @@ class CouponController {
   }
 
   /**
-   * Update coupon details.
-   * PUT or PATCH coupons/:id
+   * Update client details.
+   * PUT or PATCH clients/:id
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -79,8 +79,8 @@ class CouponController {
   }
 
   /**
-   * Delete a coupon with id.
-   * DELETE coupons/:id
+   * Delete a client with id.
+   * DELETE clients/:id
    *
    * @param {object} ctx
    * @param {Request} ctx.request
@@ -90,4 +90,4 @@ class CouponController {
   }
 }
 
-module.exports = CouponController
+module.exports = ClientController

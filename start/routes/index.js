@@ -25,3 +25,6 @@ require("./auth")
 
 //admin
 require("./admin")
+
+//client
+require("./client")
