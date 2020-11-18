@@ -36,7 +36,7 @@ const managerSingleUpload = async (file, path = null) => {
   //  gera um nome aleatório
   const random_name = await str_random(30)
 
-  let fileName = `${new Date().getTime}-${random_name}.${file.subtype}`
+  let fileName = `${new Date().getTime()}-${random_name}.${file.subtype}`
 
   // renomeia o arquivo e move para o path
   await file.move(path, {
@@ -60,7 +60,7 @@ const managerMultipleUploads = async (fileJar, path = null) => {
   await Promise.all(
     fileJar.map(async file => {
       let random_name = await str_random(30)
-      let fileName = `${new Date().getTime}-${random_name}.${file.subtype}`
+      let fileName = `${new Date().getTime()}-${random_name}.${file.subtype}`
       // move o arquivo
       await file.move(path, {
         name: fileName,
@@ -76,4 +76,4 @@ const managerMultipleUploads = async (fileJar, path = null) => {
   return { successes, errors }
 }
 
-module.exports = { str_random, managerSingleUpload, manageMultipleUploads }
+module.exports = { str_random, managerSingleUpload, managerMultipleUploads }
