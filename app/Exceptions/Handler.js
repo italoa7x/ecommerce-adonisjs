@@ -1,7 +1,8 @@
 "use strict"
 const Logger = use("Logger")
 const BaseExceptionHandler = use("BaseExceptionHandler")
-
+const Env = use("Env")
+const Youch = use("Youch")
 /**
  * This class handles all exceptions thrown during
  * the HTTP request lifecycle.
@@ -21,7 +22,16 @@ class ExceptionHandler extends BaseExceptionHandler {
    * @return {void}
    */
   async handle(error, { request, response }) {
-    response.status(error.status).send(error.message)
+    if (error.name === "ValidationException") {
+      return response.status(error.status).send(error.messages)
+    }
+
+    if (Env.get("NODE_ENV") === "development") {
+      const youch = new Youch(error, request.request)
+      const errorJson = await youch.toJSON()
+      return response.status(error.status).send(errorJson)
+    }
+    return response.status(error.status)
   }
 
   /**
@@ -40,7 +50,7 @@ class ExceptionHandler extends BaseExceptionHandler {
         stack: error.stack,
         message: error.mesage,
         status: error.status,
-        name: error.name
+        name: error.name,
       })
     }
   }

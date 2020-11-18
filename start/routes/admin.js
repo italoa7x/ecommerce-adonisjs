@@ -3,7 +3,7 @@
 const Route = use("Route")
 
 Route.group(() => {
-  Route.resource("/categories", "CategoriaController").apiOnly()
+  Route.resource("/categories", "CategoryController").apiOnly()
 
   Route.resource("/products", "ProductController").apiOnly()
   Route.resource("/images", "ImageController").apiOnly()
